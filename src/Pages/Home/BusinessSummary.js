@@ -7,17 +7,17 @@ const BusinessSummary = () => {
     return (
         <div className='mt-20'>
 
-            <div class="max-w-md text-center mx-auto lg:mb-[-50px]">
-                <h1 class="text-2xl font-bold uppercase text-accent">Auto Parts Supply For Your Business</h1>
-                <p class=" text-xl text-center">USERS EXPECTATION</p>
+            <div className="max-w-md text-center mx-auto lg:mb-[-50px]">
+                <h1 className="text-2xl font-bold uppercase text-accent">Auto Parts Supply For Your Business</h1>
+                <p className=" text-xl text-center">USERS EXPECTATION</p>
 
-                <div class="mx-auto text-center w-full divider">
-                    <p class="tab tab-bordered w-50"></p>
-                    <p class="tab tab-bordered tab-active"></p>
-                    <p class="tab tab-bordered"></p>
+                <div className="mx-auto text-center w-full divider">
+                    <p className="tab tab-bordered w-50"></p>
+                    <p className="tab tab-bordered tab-active"></p>
+                    <p className="tab tab-bordered"></p>
                 </div>
             </div>
-            <div class="hero min-h-screen lg:mt-[-150px]" style={{ background: `url(${bgimg})`, backgroundSize: 'cover' }}>
+            <div className="hero min-h-screen lg:mt-[-150px]" style={{ background: `url(${bgimg})`, backgroundSize: 'cover' }}>
 
 
                 <div className='grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-20 text-4xl'>
@@ -47,15 +47,15 @@ const BusinessSummary = () => {
                 </div>
 
             </div>
-            <div tabindex="0" class="collapse collapse-open border border-base-300 bg-base-100 rounded-box flex flex-row mb-20 p-5 mx-auto mt-[-150px]">
-                <div class="collapse-title">
+            <div tabIndex="0" className="collapse collapse-open border border-base-300 bg-base-100 rounded-box flex flex-row mb-20 p-5 mx-auto mt-[-150px]">
+                <div className="collapse-title">
                     <p className='text-2xl font-bold uppercase text-accent'>GROW YOUR BUSINESS WITH SHOTEZ CAR SOLUTION?</p>
 
                     <p className='text-xl'>Feel free Contact Us</p>
                 </div>
-                <div class="collapse-content">
-                    <button class="rounded-none py-2 px-4 bg-blue-500 text-white font-semibold shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">Request Your Parts</button>
-                    <button class="btn btn-active m-10">Contact Us</button>
+                <div className="collapse-content">
+                    <button className="rounded-none py-2 px-4 bg-blue-500 text-white font-semibold shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">Request Your Parts</button>
+                    <button className="btn btn-active m-10">Contact Us</button>
                 </div>
             </div>
         </div>
