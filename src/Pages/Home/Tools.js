@@ -13,20 +13,29 @@ const Tools = () => {
         {
             _id: 1,
             name: 'Car Light',
-            descrition: '',
-            img: Headlight
+            descrition: 'Sunway Autoparts is an industry-leading aftermarket automotive lights manufacturer and distributor ',
+            img: Headlight,
+            minimumOrderQuantity: 500,
+            availableQuantity: 2000,
+            perUnitPrice: 12000,
         },
         {
             _id: 2,
             name: 'Engine Parts',
-            descrition: '',
-            img: Cylinder
+            descrition: 'Are you looking for quality, durable, high-performing auto engine parts?',
+            img: Cylinder,
+            minimumOrderQuantity: 700,
+            availableQuantity: 6000,
+            perUnitPrice: 11000,
         },
         {
             _id: 3,
             name: 'Starter Motor',
-            descrition: '',
-            img: Starter
+            descrition: 'high-performing auto engine parts? Then Sunway Autoparts is the right partner for you. ',
+            img: Starter,
+            minimumOrderQuantity: 500,
+            availableQuantity: 3000,
+            perUnitPrice: 9000,
         },
     ];
     return (

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Toolses = ({ toolses }) => {
 
@@ -9,8 +10,11 @@ const Toolses = ({ toolses }) => {
             </figure>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{toolses.name}</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <button>Buy Now</button>
+                <p>Minimum Order Quantity:{toolses.minimumOrderQuantity}pcs</p>
+                <p>Available Quantity:{toolses.availableQuantity}pcs</p>
+                <p>Per Unit Price:${toolses.perUnitPrice}</p>
+                <p>Descrition:{toolses.descrition}</p>
+                <Link to="/purchase" class="btn btn-accent">Purchase</Link>
             </div>
         </div>
     );
