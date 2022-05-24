@@ -14,7 +14,7 @@ const Toolses = ({ toolses }) => {
                 <p>Available Quantity:{toolses.availableQuantity}pcs</p>
                 <p>Per Unit Price:${toolses.perUnitPrice}</p>
                 <p>Descrition:{toolses.descrition}</p>
-                <Link to="/purchase" class="btn btn-accent">Purchase</Link>
+                <Link to="/purchase" className="btn btn-accent">Purchase</Link>
             </div>
         </div>
     );
