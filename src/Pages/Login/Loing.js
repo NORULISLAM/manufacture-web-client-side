@@ -91,7 +91,7 @@ const Loing = () => {
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <br />
-                    <Form.Control class="input input-bordered input-info w-full max-w-xs" onBlur={(event) => setPassword(event.target.value)} name='password' type="password" placeholder="Password" required />
+                    <Form.Control class="input input-bordered" onBlur={(event) => setPassword(event.target.value)} name='password' type="password" placeholder="Password" required />
                 </Form.Group>
 
 
