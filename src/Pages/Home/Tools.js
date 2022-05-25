@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Toolses from './Toolses';
 import Headlight from '../../tools-img/Headlight-for-Lexus-RX350-SCH31.png'
 import Cylinder from '../../tools-img/Cylinder-Piston-Kit-for-Honda-ATC70-CRF70-CT70-C70-SMCK08.png'
@@ -9,35 +9,38 @@ import Starter from '../../tools-img/Starter-motor.png'
 
 
 const Tools = () => {
-    const toolses = [
-        {
-            _id: 1,
-            name: 'Car Light',
-            descrition: 'Sunway Autoparts is an industry-leading aftermarket automotive lights manufacturer and distributor ',
-            img: Headlight,
-            minimumOrderQuantity: 500,
-            availableQuantity: 2000,
-            perUnitPrice: 12000,
-        },
-        {
-            _id: 2,
-            name: 'Engine Parts',
-            descrition: 'Are you looking for quality, durable, high-performing auto engine parts?',
-            img: Cylinder,
-            minimumOrderQuantity: 700,
-            availableQuantity: 6000,
-            perUnitPrice: 11000,
-        },
-        {
-            _id: 3,
-            name: 'Starter Motor',
-            descrition: 'high-performing auto engine parts? Then Sunway Autoparts is the right partner for you. ',
-            img: Starter,
-            minimumOrderQuantity: 500,
-            availableQuantity: 3000,
-            perUnitPrice: 9000,
-        },
-    ];
+    // const toolses = [
+    //     {
+    //         name: 'Car Light',
+    //         descrition: 'Sunway Autoparts is an industry-leading aftermarket automotive lights manufacturer and distributor ',
+    //         img: Headlight,
+    //         minimumOrderQuantity: 100,
+    //         availableQuantity: 200,
+    //         perUnitPrice: 1200,
+    //     },
+    //     {
+    //         name: 'Engine Parts',
+    //         descrition: 'Are you looking for quality, durable, high-performing auto engine parts?',
+    //         img: Cylinder,
+    //         minimumOrderQuantity: 100,
+    //         availableQuantity: 600,
+    //         perUnitPrice: 1100,
+    //     },
+    //     {
+    //         name: 'Starter Motor',
+    //         descrition: 'high-performing auto engine parts? Then Sunway Autoparts is the right partner for you. ',
+    //         img: Starter,
+    //         minimumOrderQuantity: 100,
+    //         availableQuantity: 300,
+    //         perUnitPrice: 900,
+    //     },
+    // ]
+    const [toolses, setToolses] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/service')
+            .then(res => res.json())
+            .then(data => setToolses(data));
+    }, [])
     return (
         <div className='my-28'>
             <div className='text-center'>

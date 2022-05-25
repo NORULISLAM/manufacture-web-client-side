@@ -12,6 +12,10 @@ import LogOut from './Pages/LogOut/LogOut';
 import Loing from './Pages/Login/Loing';
 import Blog from './Pages/Blog/Blog';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import RequireAuth from './Pages/RequireAuth/RequireAuth';
+import MyOrder from './MyOrder/MyOrder';
+import MyProfile from './MyProfile/MyProfile';
+import AddReview from './AddReview/AddReview';
 
 
 function App() {
@@ -23,8 +27,23 @@ function App() {
         <Route path="/home" element={<Home></Home>} />
         <Route path="about" element={<About></About>} />
         <Route path="myprotfolio" element={<MyPortfolio></MyPortfolio>} />
-        <Route path="dashboard" element={<Dashboard></Dashboard>} />
-        <Route path="/Purchase/:serviceId" element={<Purchase></Purchase>} />
+
+        <Route path="dashboard" element={
+          <RequireAuth>
+            <Dashboard></Dashboard>
+          </RequireAuth>
+        }>
+          <Route index element={<MyOrder></MyOrder>}></Route>
+          <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
+          <Route path='addreview' element={<AddReview></AddReview>}></Route>
+        </Route>
+
+        <Route path="/Purchase/:serviceId" element={
+          <RequireAuth>
+            <Purchase></Purchase>
+          </RequireAuth>
+        }></Route>
+
         <Route path='/login' element={<Loing></Loing>}></Route>
         <Route path='/logout' element={<LogOut></LogOut>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>

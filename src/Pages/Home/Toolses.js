@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Toolses = ({ toolses, _id }) => {
+const Toolses = ({ toolses }) => {
+    const { _id } = toolses;
+
+    console.log(_id);
     const navigate = useNavigate();
     const navigateToAddItem = id => {
         navigate(`/Purchase/${id}`);
@@ -17,7 +20,7 @@ const Toolses = ({ toolses, _id }) => {
                 <p>Available Quantity:{toolses.availableQuantity}pcs</p>
                 <p>Per Unit Price:${toolses.perUnitPrice}</p>
                 <p>Descrition:{toolses.descrition}</p>
-                <Link to="/purchase" onClick={() => navigateToAddItem(_id)} className="btn btn-accent">Purchase</Link>
+                <button onClick={() => navigateToAddItem(_id)} className="btn btn-accent">Purchase</button>
             </div>
         </div>
     );

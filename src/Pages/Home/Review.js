@@ -7,28 +7,28 @@ import Reviews from './Reviews';
 const Review = () => {
     const reviews = [
         {
-            _id: 1,
+
             name: 'jonny abdin',
             review: 'We service, manufacture, and source aftermarket auto parts and vehicle accessory solutions of different autos in bulk.',
             img: people1,
             location: 'tokyo',
         },
         {
-            _id: 2,
+
             name: 'kuddus mia',
             review: 'We supply an extensive selection of precise OEM automotive parts. Contact us if you cant find the brand on our list.',
             img: people2,
             location: 'tokyo',
         },
         {
-            _id: 3,
+
             name: 'bodur ali',
             review: 'We are a classic car parts supplier of a diverse range of vintage autos dating as far back as 1920.',
             img: people3,
             location: 'tokyo',
         },
         {
-            _id: 4,
+
             name: 'bodur ali',
             review: 'We can find you rare auto parts that are no longer in production through our long-standing partnerships with automotive parts suppliers.',
             img: people3,
