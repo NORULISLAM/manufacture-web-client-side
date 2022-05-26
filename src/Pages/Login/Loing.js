@@ -90,14 +90,14 @@ const Loing = () => {
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <br />
-                    <Form.Control class="input input-bordered input-info w-full max-w-xs" onBlur={(event) => setEmail(event.target.value)} name='email' type="email" placeholder="Enter email" required />
+                    <Form.Control className="input input-bordered input-info w-full max-w-xs" onBlur={(event) => setEmail(event.target.value)} name='email' type="email" placeholder="Enter email" required />
 
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <br />
-                    <Form.Control class="input input-bordered" onBlur={(event) => setPassword(event.target.value)} name='password' type="password" placeholder="Password" required />
+                    <Form.Control className="input input-bordered" onBlur={(event) => setPassword(event.target.value)} name='password' type="password" placeholder="Password" required />
                 </Form.Group>
 
 

@@ -20,8 +20,8 @@ const MyOrder = () => {
     return (
         <div>
             <h2>My Order:  {order.length}</h2>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     {/* <!-- head --> */}
                     <thead>
                         <tr>
@@ -30,11 +30,15 @@ const MyOrder = () => {
                             <th>minimum Qantity:</th>
                             <th>availableQuantity:</th>
                             <th>per Unit price:</th>
+                            <th>..</th>
+                            <th>..</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            order.map((o, index) => <tr>
+                            order.map((o, index) => <tr
+                                key={o._id}
+                            >
                                 <th>{index + 1}</th>
                                 <td>{o.name}</td>
                                 <td>{o.minimumOrderQantity}</td>

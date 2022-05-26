@@ -39,7 +39,7 @@ const SocialLogin = () => {
     return (
         <div>
             <div className='text-center'>
-                <div class="divider text-center w-auto">OR</div>
+                <div className="divider text-center w-auto">OR</div>
 
             </div>
             {errorElement}
