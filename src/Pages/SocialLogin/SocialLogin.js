@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import google from '../../tools-img/Colorful-google-logo-design-on-transparent-PNG-1.png'
 import auth from '../../firebase.init';
 import Loading from '../Loading/Loading';
+import useToken from '../../hooks/useToken';
 
 const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
+    const navigate2 = useNavigate();
     let errorElement;
+    const [token] = useToken(user);
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+    useEffect(() => {
+        if (token) {
+            navigate2(from, { replace: true });
+        }
+    }, [token, from, navigate2])
+
     if (loading) {
         return <Loading></Loading>
     }
@@ -20,9 +31,11 @@ const SocialLogin = () => {
 
     }
 
-    if (user) {
-        navigate('/home');
-    }
+
+
+    // if (user) {
+    //     navigate('/home');
+    // }
     return (
         <div>
             <div className='text-center'>

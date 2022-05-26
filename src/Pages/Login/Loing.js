@@ -3,7 +3,7 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
@@ -11,6 +11,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import Loading from '../Loading/Loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useToken from '../../hooks/useToken';
 
 
 
@@ -32,11 +33,16 @@ const Loing = () => {
         useSignInWithGoogle(auth);
     let errorElement;
 
-
+    const [token] = useToken(user || user);
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token, from, navigate])
 
     const handleSubmit = event => {
 
@@ -109,7 +115,7 @@ const Loing = () => {
                     Log In
                 </Button>
             </Form>
-            <p>Create new account ? <Link to='/logout' className='text-danger pe-auto text-decoration-none' onClick={navigateLogOut}>Please Register</Link></p>
+            <p>Create new account ? <Link to='/singup' className='text-danger pe-auto text-decoration-none' onClick={navigateLogOut}>Please Register</Link></p>
             <SocialLogin></SocialLogin>
             <ToastContainer />
         </div>

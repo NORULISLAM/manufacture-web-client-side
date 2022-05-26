@@ -33,20 +33,12 @@ const SignUp = () => {
     }
 
     if (token) {
-        navigate('/appointment');
+        navigate('/home');
     }
 
 
 
-    if (user) {
-        const form = user.currentTarget;
-        user.preventDefault();
-        if (form.checkValidity() === false) {
-            user.stopPropagation();
-            return;
 
-        }
-    }
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });

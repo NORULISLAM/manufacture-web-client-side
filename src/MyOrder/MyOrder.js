@@ -7,7 +7,12 @@ const MyOrder = () => {
     const [user] = useAuthState(auth);
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/service?availableQuantity=${user.availableQuantity}`)
+            fetch(`http://localhost:5000/service?availableQuantity=${user.availableQuantity}`, {
+                method: 'GET',
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
                 .then(res => res.json())
                 .then(data => setOrder(data));
         }
@@ -35,6 +40,9 @@ const MyOrder = () => {
                                 <td>{o.minimumOrderQantity}</td>
                                 <td>{o.availableQuantity}</td>
                                 <td>{o.perUnitPrice}</td>
+                                <td><button>Pay</button></td>
+                                <td><button>Cancel</button></td>
+
                             </tr>)
 
                         }

@@ -46,7 +46,7 @@ function App() {
         }></Route>
 
         <Route path='/login' element={<Loing></Loing>}></Route>
-        <Route path='/logout' element={<LogOut></LogOut>}></Route>
+        {/* <Route path='/logout' element={<LogOut></LogOut>}></Route> */}
         <Route path='/singup' element={<SignUp></SignUp>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
