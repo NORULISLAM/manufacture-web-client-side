@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 const Toolses = ({ toolses }) => {
     const { _id } = toolses;
 
-    console.log(_id);
+
     const navigate = useNavigate();
     const navigateToAddItem = id => {
         navigate(`/Purchase/${id}`);

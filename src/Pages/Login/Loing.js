@@ -73,7 +73,7 @@ const Loing = () => {
     const navigateLogOut = event => {
 
 
-        navigate('/logout');
+        navigate('/singup');
     }
 
 

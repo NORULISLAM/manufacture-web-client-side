@@ -1,6 +1,6 @@
 # CAR SOLATIONS
 
-This project was warhouse with live link (https://inventroy-management.web.app/myitem).
+This project was warhouse with live link (https://car-solutions-91752.web.app/).
 
 
 -used daiyui libery

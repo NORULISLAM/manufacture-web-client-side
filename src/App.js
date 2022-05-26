@@ -16,6 +16,7 @@ import RequireAuth from './Pages/RequireAuth/RequireAuth';
 import MyOrder from './MyOrder/MyOrder';
 import MyProfile from './MyProfile/MyProfile';
 import AddReview from './AddReview/AddReview';
+import SignUp from './Pages/LogOut/SignUp';
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
 
         <Route path='/login' element={<Loing></Loing>}></Route>
         <Route path='/logout' element={<LogOut></LogOut>}></Route>
+        <Route path='/singup' element={<SignUp></SignUp>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>

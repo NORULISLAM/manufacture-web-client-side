@@ -1,8 +1,10 @@
 import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useToken from '../../hooks/useToken';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const LogOut = () => {
@@ -11,6 +13,10 @@ const LogOut = () => {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
+
+    const [user] = useAuthState(auth);
+
+    const [token] = useToken(user);
 
     useEffect(() => {
         if (error) {
@@ -39,10 +45,7 @@ const LogOut = () => {
             event.stopPropagation();
             return;
         }
-        if (!/(?=.*[0-9]).{8,}/.test(password)) {
-            setError('please password input 8 digit')
-            return;
-        }
+
         setValidated(true);
 
         setError('')
@@ -54,7 +57,9 @@ const LogOut = () => {
                 setPassword('')
                 setName('')
                 verifyEmail();
+
             })
+
             .catch(error => {
                 console.log(error);
                 setError(error.message)
