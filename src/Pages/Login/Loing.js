@@ -84,41 +84,45 @@ const Loing = () => {
 
 
     return (
-        <div className='text-center w-auto m-5 p-5'>
-            <h2 className='text-primary text-center mt-4 text-4xl font-bold'>Please Login </h2>
-            <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <br />
-                    <Form.Control className="input input-bordered input-info w-full max-w-xs" onBlur={(event) => setEmail(event.target.value)} name='email' type="email" placeholder="Enter email" required />
+        <div className='flex h-screen justify-center items-center'>
+            <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card-body">
+                    <h2 className="text-center text-2xl font-bold mb-10">Please Login </h2>
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Email address</Form.Label>
 
-                </Form.Group>
+                            <Form.Control className="input input-bordered w-full max-w-xs form-control" onBlur={(event) => setEmail(event.target.value)} name='email' type="email" placeholder="Enter email" required />
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <br />
-                    <Form.Control className="input input-bordered" onBlur={(event) => setPassword(event.target.value)} name='password' type="password" placeholder="Password" required />
-                </Form.Group>
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+
+                            <Form.Control className="input input-bordered w-full max-w-xs form-control" onBlur={(event) => setPassword(event.target.value)} name='password' type="password" placeholder="Password" required />
+                        </Form.Group>
 
 
-                {/* <Button onClick={() => signInWithGoogle()} variant="primary" type="submit">
+                        {/* <Button onClick={() => signInWithGoogle()} variant="primary" type="submit">
                     Google Sing In
                 </Button> */}
 
-                {errorElement}
+                        {errorElement}
 
-                <button className='btn btn-link text-primary pe-auto-decoration-none' variant="link" type="submit" onClick={handlePasswordReset}>
-                    Resset password?
-                </button>
-                <br />
-                <Button onClick={handlePasswordReset} variant="primary" type="submit">
-                    Log In
-                </Button>
-            </Form>
-            <p>Create new account ? <Link to='/singup' className='text-danger pe-auto text-decoration-none' onClick={navigateLogOut}>Please Register</Link></p>
-            <SocialLogin></SocialLogin>
-            <ToastContainer />
-        </div>
+                        <button className='btn btn-link text-primary pe-auto-decoration-none' variant="link" type="submit" onClick={handlePasswordReset}>
+                            Resset password?
+                        </button>
+                        <br />
+                        <Button className='btn w-full max-w-xs text-white' onClick={handlePasswordReset} variant="primary" type="submit">
+                            Log In
+                        </Button>
+                    </Form>
+                    <p>Create new account ? <Link to='/singup' className='text-primary pe-auto text-decoration-none' onClick={navigateLogOut}>Please Register</Link></p>
+                    <SocialLogin></SocialLogin>
+                    <ToastContainer />
+                </div>
+            </div>
+        </div >
     );
 };
 

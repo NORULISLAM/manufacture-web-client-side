@@ -18,6 +18,7 @@ import MyProfile from './MyProfile/MyProfile';
 import AddReview from './AddReview/AddReview';
 import SignUp from './Pages/LogOut/SignUp';
 import ManageOrder from './Pages/Dashboard/ManageOrder';
+import RequireAdmin from './hooks/RequireAdmin';
 
 
 function App() {
@@ -38,7 +39,8 @@ function App() {
           <Route index element={<MyOrder></MyOrder>}></Route>
           <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
           <Route path='addreview' element={<AddReview></AddReview>}></Route>
-          <Route path='manageallorders' element={<ManageOrder></ManageOrder>}></Route>
+          <Route path='manageallorders' element={<RequireAdmin><ManageOrder></ManageOrder>
+          </RequireAdmin>}></Route>
         </Route>
 
         <Route path="/Purchase/:serviceId" element={

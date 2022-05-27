@@ -1,15 +1,16 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import { ToastContainer } from 'react-toastify';
 import Loading from '../Loading/Loading';
 import ManageOrderRaw from './ManageOrderRaw';
 
 
 const ManageOrder = () => {
     const { data, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
-        // method: 'GET',
-        // headers: {
-        //     authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        // }
+        method: 'GET',
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        }
     }).then(res => res.json()));
     if (isLoading) {
         return <Loading></Loading>
@@ -17,7 +18,7 @@ const ManageOrder = () => {
     return (
         <div>
             <div>
-                <h2 className="text-2xl">All Users: {data.length}</h2>
+                <h2 className="text-2xl">All Users: {data?.length}</h2>
                 <div className="overflow-x-auto">
                     <table className="table w-full">
                         <thead>
@@ -33,6 +34,7 @@ const ManageOrder = () => {
                                 data.map(user => <ManageOrderRaw
                                     key={user._id}
                                     user={user}
+                                    refetch={refetch}
                                 ></ManageOrderRaw>)
                             }
                             {/* {
@@ -48,7 +50,7 @@ const ManageOrder = () => {
                                     </tr>)
                             } */}
 
-
+                            <ToastContainer />
                         </tbody>
                     </table>
                 </div>

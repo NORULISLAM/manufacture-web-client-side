@@ -39,11 +39,11 @@ const SocialLogin = () => {
     return (
         <div>
             <div className='text-center'>
-                <div className="divider text-center w-auto">OR</div>
+                <div class="divider text-center w-auto">OR</div>
 
             </div>
             {errorElement}
-            <div>
+            <div className='flex justify-center items-center'>
                 <button
                     onClick={() => signInWithGoogle()}
                     className='btn btn-info w-50 d-block mx-auto'>
