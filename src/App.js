@@ -19,6 +19,9 @@ import AddReview from './AddReview/AddReview';
 import SignUp from './Pages/LogOut/SignUp';
 import ManageOrder from './Pages/Dashboard/ManageOrder';
 import RequireAdmin from './hooks/RequireAdmin';
+import AddProduct from './Pages/AddProduct/AddProduct';
+import { ToastContainer } from 'react-toastify';
+import ManageProduct from './Pages/AddProduct/ManageProduct/ManageProduct';
 
 
 function App() {
@@ -41,8 +44,11 @@ function App() {
           <Route path='addreview' element={<AddReview></AddReview>}></Route>
           <Route path='manageallorders' element={<RequireAdmin><ManageOrder></ManageOrder>
           </RequireAdmin>}></Route>
+          <Route path='addnewproduct' element={<RequireAdmin><AddProduct></AddProduct>
+          </RequireAdmin>}></Route>
+          <Route path='manageproduct' element={<RequireAdmin><ManageProduct></ManageProduct>
+          </RequireAdmin>}></Route>
         </Route>
-
         <Route path="/Purchase/:serviceId" element={
           <RequireAuth>
             <Purchase></Purchase>
@@ -56,6 +62,7 @@ function App() {
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 }
