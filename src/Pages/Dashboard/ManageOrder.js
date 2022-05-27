@@ -30,6 +30,12 @@ const ManageOrder = () => {
                         </thead>
                         <tbody>
                             {
+                                data.map(user => <ManageOrderRaw
+                                    key={user._id}
+                                    user={user}
+                                ></ManageOrderRaw>)
+                            }
+                            {/* {
                                 data.map(user =>
 
                                     <tr
@@ -40,7 +46,7 @@ const ManageOrder = () => {
                                         <td><button className="btn btn-xs">Make Admin</button></td>
                                         <td><button className="btn btn-xs">Delete User</button></td>
                                     </tr>)
-                            }
+                            } */}
 
 
                         </tbody>
