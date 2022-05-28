@@ -6,7 +6,6 @@ const Reviews = ({ review }) => {
         <div className="card lg:max-w-lg bg-base-100 shadow-xl">
             <div className="card-body">
 
-                <p>If a dog chews shoes whose shoes does he choose?</p>
                 <div className="flex items-center">
                     <div className="avatar">
                         <div className="w-25 rounded-full ring ring-primary ring-offset-base-100 mr-5">
@@ -14,7 +13,7 @@ const Reviews = ({ review }) => {
                         </div>
                         <div>
                             <h4 className='text-xl'>{review.name}</h4>
-                            <p>{review.location}</p>
+                            <p>{review.description}</p>
                         </div>
                     </div>
                 </div>

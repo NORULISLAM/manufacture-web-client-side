@@ -10,7 +10,7 @@ const ManageProduct = () => {
 
     const [deletingProduct, setDeletingProduct] = useState(null);
 
-    const { data, isLoading, refetch } = useQuery('products', () => fetch('http://localhost:5000/product', {
+    const { data, isLoading, refetch } = useQuery('products', () => fetch('https://glacial-eyrie-28106.herokuapp.com/product', {
         headers: {
             // authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
@@ -24,8 +24,8 @@ const ManageProduct = () => {
     return (
         <div>
             <h1 className='text-4xl text-center m-10'>Manage Product: {data?.length}</h1>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
 import auth from '../firebase.init';
 
 const MyOrder = () => {
@@ -7,7 +8,7 @@ const MyOrder = () => {
     const [user] = useAuthState(auth);
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/service?availableQuantity=${user.availableQuantity}`, {
+            fetch(`https://glacial-eyrie-28106.herokuapp.com/service?availableQuantity=${user.availableQuantity}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -44,8 +45,8 @@ const MyOrder = () => {
                                 <td>{o.minimumOrderQantity}</td>
                                 <td>{o.availableQuantity}</td>
                                 <td>{o.perUnitPrice}</td>
-                                <td><button>Pay</button></td>
-                                <td><button>Cancel</button></td>
+                                <td>{(o.perUnitPrice && !o.paid) && <Link to={`/dashboard/payment/${o._id}`}><button className='btn btn-xs btn-info'>Pay</button></Link>}</td>
+                                <td>{(o.perUnitPrice && !o.paid) && <Link to={``}><button className='btn btn-xs btn-success'>Paid</button></Link>}</td>
 
                             </tr>)
 

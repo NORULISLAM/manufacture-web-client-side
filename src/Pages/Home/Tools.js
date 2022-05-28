@@ -37,7 +37,7 @@ const Tools = () => {
     // ]
     const [toolses, setToolses] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/service')
+        fetch('https://glacial-eyrie-28106.herokuapp.com/product')
             .then(res => res.json())
             .then(data => setToolses(data));
     }, [])

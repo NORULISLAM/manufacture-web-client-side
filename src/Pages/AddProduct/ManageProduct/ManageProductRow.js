@@ -6,7 +6,7 @@ const ManageProductRow = ({ product, index, refetch, setDeletingProduct }) => {
 
 
     const handleDelete = email => {
-        fetch(`http://localhost:5000/product/${email}`, {
+        fetch(`https://glacial-eyrie-28106.herokuapp.com/product/${email}`, {
             method: 'DELETE',
             headers: {
                 // authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -25,8 +25,8 @@ const ManageProductRow = ({ product, index, refetch, setDeletingProduct }) => {
     return (
         <tr>
             <th>{index + 1}</th>
-            <td><div class="avatar">
-                <div class="w-8 rounded">
+            <td><div className="avatar">
+                <div className="w-8 rounded">
                     <img src={img} alt={name} />
                 </div>
             </div></td>
@@ -34,7 +34,7 @@ const ManageProductRow = ({ product, index, refetch, setDeletingProduct }) => {
             <td>{price}</td>
             <td>
 
-                <label onClick={() => setDeletingProduct(product)} for="delete-confirm-modal" class="btn btn-xs btn-error">Delete</label>
+                <label onClick={() => setDeletingProduct(product)} for="delete-confirm-modal" className="btn btn-xs btn-error">Delete</label>
             </td>
         </tr>
     );

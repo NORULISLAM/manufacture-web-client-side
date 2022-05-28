@@ -7,7 +7,7 @@ import Loading from '../../Pages/Loading/Loading';
 const AddProduct = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
-    const { data: services, isLoading } = useQuery('services', () => fetch('http://localhost:5000/service').then(res => res.json()))
+    const { data: services, isLoading } = useQuery('services', () => fetch('https://glacial-eyrie-28106.herokuapp.com/service').then(res => res.json()))
 
     const imageStorageKey = '97e40236ff3ef513c5b0659ceebba37e';
 
@@ -33,11 +33,12 @@ const AddProduct = () => {
                         descrition: data.descrition,
                         qantity: data.qantity,
                         price: data.price,
+                        manimum: data.manimum,
                         img: img
                     }
                     // send to img in  database 
 
-                    fetch('http://localhost:5000/product', {
+                    fetch('https://glacial-eyrie-28106.herokuapp.com/product', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -115,7 +116,7 @@ const AddProduct = () => {
                         <span className="label-text">Available Qantity</span>
                     </label>
                     <input
-                        type="text"
+                        type="number"
                         placeholder="Quantity"
                         className="input input-bordered w-full max-w-xs"
                         {...register("qantity", {
@@ -134,10 +135,10 @@ const AddProduct = () => {
                         <span className="label-text">Per unit price</span>
                     </label>
                     <input
-                        type="text"
+                        type="number"
                         placeholder="price"
                         className="input input-bordered w-full max-w-xs"
-                        {...register("qantity", {
+                        {...register("price", {
                             required: {
                                 value: true,
                                 message: 'price is Required'
@@ -146,6 +147,25 @@ const AddProduct = () => {
                     />
                     <label className="label">
                         {errors.price?.type === 'required' && <span className="label-text-alt text-red-500">{errors.price.message}</span>}
+                    </label>
+                </div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">manimum Quantity Order</span>
+                    </label>
+                    <input
+                        type="number"
+                        placeholder="manimum order"
+                        className="input input-bordered w-full max-w-xs"
+                        {...register("manimum", {
+                            required: {
+                                value: true,
+                                message: 'manimum is Required'
+                            }
+                        })}
+                    />
+                    <label className="label">
+                        {errors.manimum?.type === 'required' && <span className="label-text-alt text-red-500">{errors.manimum.message}</span>}
                     </label>
                 </div>
 
