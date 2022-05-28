@@ -6,7 +6,7 @@ const ManageOrderRaw = ({ user, refetch }) => {
 
     const { email, role } = user;
     const makeAdmin = () => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://glacial-eyrie-28106.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -31,7 +31,7 @@ const ManageOrderRaw = ({ user, refetch }) => {
             })
     }
     const handleDelete = email => {
-        fetch(`http://localhost:5000/users/${email}`, {
+        fetch(`https://glacial-eyrie-28106.herokuapp.com/users/${email}`, {
             method: 'DELETE',
             headers: {
                 // authorization: `Bearer ${localStorage.getItem('accessToken')}`
