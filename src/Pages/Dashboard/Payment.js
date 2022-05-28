@@ -11,7 +11,7 @@ const stripePromise = loadStripe('pk_test_51L4SU7G76g4H9RNSXIHo3W9g7dVlzxoD4sKYN
 
 const Payment = () => {
     const { id } = useParams();
-    const url = `http://localhost:5000/service${id}`;
+    const url = `https://glacial-eyrie-28106.herokuapp.com/service${id}`;
 
     const { data: appointment, isLoading } = useQuery(['booking', id], () => fetch(url, {
         method: 'GET',

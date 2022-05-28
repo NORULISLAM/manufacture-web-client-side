@@ -80,7 +80,7 @@ const CheckoutForm = ({ appointment }) => {
                 appointment: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000/service${_id}`, {
+            fetch(`https://glacial-eyrie-28106.herokuapp.com/service${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
