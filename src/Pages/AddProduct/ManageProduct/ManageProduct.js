@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import Loading from '../../Loading/Loading';
 import { useQuery } from 'react-query';
+import ManageProductRow from './ManageProductRow';
+import DeleteConfirmModal from './DeleteConfirmModal';
+
+
+
 const ManageProduct = () => {
 
     const [deletingProduct, setDeletingProduct] = useState(null);
 
-    const { data: products, isLoading, refetch } = useQuery('products', () => fetch('http://localhost:5000/product', {
+    const { data, isLoading, refetch } = useQuery('products', () => fetch('http://localhost:5000/product', {
         headers: {
-            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            // authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res => res.json()));
 
@@ -18,7 +23,7 @@ const ManageProduct = () => {
 
     return (
         <div>
-            <h1 className='text-4xl text-center m-10'>Manage Product: {products.length}</h1>
+            <h1 className='text-4xl text-center m-10'>Manage Product: {data?.length}</h1>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>
@@ -32,10 +37,27 @@ const ManageProduct = () => {
                     </thead>
                     <tbody>
 
+                        {
+                            data?.map((product, index) => <ManageProductRow
+                                key={product._key}
+                                product={product}
+                                index={index}
+                                refetch={refetch}
+                                setDeletingProduct={setDeletingProduct}
+                            ></ManageProductRow>)
+
+                        }
+
                     </tbody>
                 </table>
             </div>
+            {deletingProduct && <DeleteConfirmModal
+                deletingProduct={deletingProduct}
+                refetch={refetch}
+                setDeletingProduct={setDeletingProduct}
+            ></DeleteConfirmModal>}
         </div>
+
     );
 };
 
