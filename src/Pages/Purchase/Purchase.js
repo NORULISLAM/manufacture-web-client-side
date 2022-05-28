@@ -11,10 +11,10 @@ const Purchase = () => {
     const { serviceId } = useParams();
     const [service, setService] = useState({});
     ///react hook infomation
-    const { data: services, isLoading } = useQuery('services', () => fetch('https://glacial-eyrie-28106.herokuapp.com/services').then(res => res.json()))
+    const { data: services, isLoading } = useQuery('services', () => fetch('http://localhost:5000/services').then(res => res.json()))
 
     useEffect(() => {
-        const url = `https://glacial-eyrie-28106.herokuapp.com/services/${serviceId}`;
+        const url = `http://localhost:5000/services/${serviceId}`;
 
         fetch(url)
             .then(res => res.json())
@@ -34,7 +34,7 @@ const Purchase = () => {
         }
         // send to img in  database 
 
-        fetch('https://glacial-eyrie-28106.herokuapp.com/services', {
+        fetch('http://localhost:5000/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

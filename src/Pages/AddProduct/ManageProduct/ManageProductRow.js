@@ -6,7 +6,7 @@ const ManageProductRow = ({ product, index, refetch, setDeletingProduct }) => {
 
 
     const handleDelete = email => {
-        fetch(`https://glacial-eyrie-28106.herokuapp.com/product/${email}`, {
+        fetch(`http://localhost:5000/product/${email}`, {
             method: 'DELETE',
             headers: {
                 // authorization: `Bearer ${localStorage.getItem('accessToken')}`

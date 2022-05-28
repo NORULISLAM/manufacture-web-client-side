@@ -7,7 +7,7 @@ import Loading from '../../Pages/Loading/Loading';
 const AddProduct = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
-    const { data: services, isLoading } = useQuery('services', () => fetch('https://glacial-eyrie-28106.herokuapp.com/service').then(res => res.json()))
+    const { data: services, isLoading } = useQuery('services', () => fetch('http://localhost:5000/service').then(res => res.json()))
 
     const imageStorageKey = '97e40236ff3ef513c5b0659ceebba37e';
 
@@ -38,7 +38,7 @@ const AddProduct = () => {
                     }
                     // send to img in  database 
 
-                    fetch('https://glacial-eyrie-28106.herokuapp.com/product', {
+                    fetch('http://localhost:5000/product', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

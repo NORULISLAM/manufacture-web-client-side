@@ -30,12 +30,29 @@ const ManageOrderRaw = ({ user, refetch }) => {
 
             })
     }
+    const handleDelete = email => {
+        fetch(`http://localhost:5000/users/${email}`, {
+            method: 'DELETE',
+            headers: {
+                // authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount) {
+                    toast.success(`User:  is deleted.`)
+
+                    refetch();
+                }
+            })
+    }
     return (
         <tr>
             <th>1</th>
             <td>{email}</td>
             <td>{role !== 'admin' && <button onClick={makeAdmin} className="btn btn-xs">Make Admin</button>}</td>
-            <td><button className="btn btn-xs">Delete User</button></td>
+            <td><button onClick={() => handleDelete(email)} for="delete-confirm-modal" className="btn btn-xs btn-error">Delete User</button></td>
 
         </tr>
 

@@ -8,7 +8,7 @@ const MyOrder = () => {
     const [user] = useAuthState(auth);
     useEffect(() => {
         if (user) {
-            fetch(`https://glacial-eyrie-28106.herokuapp.com/service?availableQuantity=${user.availableQuantity}`, {
+            fetch(`http://localhost:5000/service?availableQuantity=${user.availableQuantity}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`

@@ -9,7 +9,7 @@ const Review = () => {
     const [product, setProduct] = useState([]);
 
     useEffect(() => {
-        fetch('https://glacial-eyrie-28106.herokuapp.com/review')
+        fetch('http://localhost:5000/review')
             .then(res => res.json())
             .then(data => setProduct(data));
     }, [])

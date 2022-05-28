@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 const BackProfile = () => {
     const [toolses, setToolses] = useState([]);
     useEffect(() => {
-        fetch('https://glacial-eyrie-28106.herokuapp.com/services')
+        fetch('http://localhost:5000/services')
             .then(res => res.json())
             .then(data => setToolses(data));
     }, [])

@@ -6,7 +6,7 @@ import ManageOrderRaw from './ManageOrderRaw';
 
 
 const ManageOrder = () => {
-    const { data, isLoading, refetch } = useQuery('users', () => fetch('https://glacial-eyrie-28106.herokuapp.com/user', {
+    const { data, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
